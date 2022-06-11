@@ -1,0 +1,19 @@
+.IUTLogoImageView
+{
+    -fx-background-color : "white";
+}
+
+.connectionButton
+{
+    -fx-background-color : #e6007c;
+}
+
+.infoTextFlow
+{
+    -fx-background-color : #D0D0D0;
+}
+
+.leftPane
+{
+    -fx-background-color : #E6007C;
+}

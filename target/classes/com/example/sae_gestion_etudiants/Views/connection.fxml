@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="IUTLogoImageView" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConnectionPageController">
+   <top>
+      <ImageView fx:id="IUTLogoImageView" fitHeight="81.0" fitWidth="299.0" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../Images/iut_laval_logo.png" />
+         </image>
+      </ImageView>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="52.0" prefWidth="394.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="connectionButton" layoutX="273.0" layoutY="18.0" mnemonicParsing="false" onAction="#onConnectionClicked" prefHeight="42.0" prefWidth="99.0" styleClass="connectionButton" stylesheets="@../Style/style.css" text="Se connecter" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="25.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox alignment="CENTER" maxHeight="600.0" maxWidth="400.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Connexion">
+               <font>
+                  <Font name="Verdana Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextFlow fx:id="infoTextFlow" styleClass="infoTextFlow" textAlignment="CENTER" visible="false">
+               <children>
+                  <Text fx:id="infoText" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextFlow>
+            <VBox spacing="40.0">
+               <children>
+                  <TextField fx:id="identifiantTextField" alignment="CENTER" prefHeight="30.0" promptText="Identifiant">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="30.0" promptText="Mot de passe">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </PasswordField>
+         </children>
+         <BorderPane.margin>
+            <Insets left="175.0" right="175.0" top="30.0" />
+         </BorderPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </center>
+   <padding>
+      <Insets bottom="15.0" />
+   </padding>
+</BorderPane>
