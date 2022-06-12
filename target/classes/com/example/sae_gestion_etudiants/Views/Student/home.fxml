@@ -32,7 +32,7 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fx:id="studentNameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Remplace moi">
+                  <Text fx:id="studentNameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font name="Verdana" size="18.0" />
                      </font>
@@ -41,7 +41,7 @@
             </VBox>
             <VBox alignment="CENTER" spacing="15.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
+                  <HBox fx:id="trombinoscopeHBox" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onTrombinoscopeClicked" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
@@ -90,7 +90,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
+                  <HBox fx:id="dsconnect" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
@@ -126,16 +126,16 @@
          <children>
             <AnchorPane>
                <children>
-                  <TableView layoutX="42.0" layoutY="214.0" prefHeight="466.0" prefWidth="830.0" style="-fx-managed: true;">
+                  <TableView fx:id="studentsTableView" layoutX="42.0" layoutY="214.0" prefHeight="466.0" prefWidth="830.0" style="-fx-managed: true;">
                     <columns>
-                      <TableColumn minWidth="15.0" prefWidth="78.0" text="Prénom" />
-                      <TableColumn prefWidth="140.00006103515625" text="Nom" />
-                        <TableColumn prefWidth="37.5999755859375" text="Age" />
-                        <TableColumn prefWidth="115.199951171875" text="Date de naissance" />
-                        <TableColumn prefWidth="72.79998779296875" text="Promotion" />
-                        <TableColumn text="Groupe TD" />
-                        <TableColumn text="Groupe TP" />
-                        <TableColumn prefWidth="228.79998779296875" text="Aménagement d'étude" />
+                      <TableColumn fx:id="nicknameTableColumn" minWidth="15.0" prefWidth="78.0" text="Prénom" />
+                      <TableColumn fx:id="nameTableColumn" prefWidth="140.00006103515625" text="Nom" />
+                        <TableColumn fx:id="ageTableColumn" prefWidth="37.5999755859375" text="Age" />
+                        <TableColumn fx:id="birthdateTableColumn" prefWidth="115.199951171875" text="Date de naissance" />
+                        <TableColumn fx:id="promotionTableColumn" prefWidth="72.79998779296875" text="Promotion" />
+                        <TableColumn fx:id="TDGroupTableColumn" text="Groupe TD" />
+                        <TableColumn fx:id="TPGroupTableColumn" text="Groupe TP" />
+                        <TableColumn fx:id="descriptionTableColumn" prefWidth="228.79998779296875" text="Description" />
                     </columns>
                   </TableView>
                   <HBox alignment="CENTER" layoutX="680.0" layoutY="128.0" spacing="4.0" AnchorPane.leftAnchor="680.0" AnchorPane.rightAnchor="44.0">
@@ -150,7 +150,7 @@
                   </HBox>
                   <TextFlow layoutX="395.0" layoutY="128.0" prefHeight="26.0" prefWidth="160.0" textAlignment="CENTER">
                      <children>
-                        <Text fx:id="groupeNameText" fill="#263a7a" strokeType="OUTSIDE" strokeWidth="0.0" text="Remplace moi">
+                        <Text fx:id="groupNameText" fill="#263a7a" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="Verdana Bold" size="20.0" />
                            </font>

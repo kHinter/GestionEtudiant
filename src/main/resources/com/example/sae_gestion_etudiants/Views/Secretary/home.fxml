@@ -121,23 +121,6 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <HBox fx:id="addGroupButton" alignment="CENTER" layoutX="367.0" layoutY="598.0" prefHeight="50.0" prefWidth="215.0" spacing="10.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;" AnchorPane.leftAnchor="367.0" AnchorPane.rightAnchor="334.0">
-               <children>
-                  <ImageView fitHeight="36.0" fitWidth="36.0">
-                     <image>
-                        <Image url="@../../Images/add.png" />
-                     </image>
-                  </ImageView>
-                  <Label text="Ajouter un groupe" textFill="#263a7a">
-                     <font>
-                        <Font name="Verdana Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
-            </HBox>
             <VBox layoutX="385.0" layoutY="203.0" prefHeight="294.0" prefWidth="228.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;">
                <children>
                   <AnchorPane prefHeight="67.0" prefWidth="228.0" style="-fx-background-color: e6007c; -fx-background-radius: 15;">
@@ -165,6 +148,23 @@
                   </AnchorPane>
                </children>
             </VBox>
+            <HBox fx:id="addGroupButton" alignment="CENTER" layoutX="367.0" layoutY="598.0" prefHeight="50.0" prefWidth="215.0" spacing="10.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;" AnchorPane.leftAnchor="367.0" AnchorPane.rightAnchor="334.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="36.0">
+                     <image>
+                        <Image url="@../../Images/add.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Ajouter un groupe" textFill="#263a7a">
+                     <font>
+                        <Font name="Verdana Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </HBox>
          </children>
       </AnchorPane>
    </center>

@@ -45,6 +45,82 @@ public class StudentDAO {
 
         return students;
     }
+
+    public List<Student> getByPromotionName(String name) throws SQLException {
+        PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM etudiant INNER JOIN promotion ON ETUDIANT.Id_promo = PROMOTION.Id_promo WHERE Nom_promo = ?;");
+        statement.setString(1, name);
+
+        ResultSet queryResult = statement.executeQuery();
+
+        List <Student> students = new ArrayList<>();
+        while(queryResult.next())
+        {
+            Student student = new Student();
+
+            student.setNum(queryResult.getString("Num_etu"));
+            student.setName(queryResult.getString("Nom_etu"));
+            student.setNickname(queryResult.getString("Prenom_etu"));
+            student.setAge(queryResult.getInt("Age_etu"));
+            student.setBirthdate(queryResult.getDate("Date_etu"));
+            student.setDescription(queryResult.getString("Desc_etu"));
+            student.setPhotoUrl(queryResult.getString("Photo_etu"));
+            student.setHasRepeated(queryResult.getBoolean("Red_etu"));
+            student.setHasResign(queryResult.getBoolean("Dem_etu"));
+            student.setPassword(queryResult.getString("Motdepasse_etu"));
+            student.setRegistrationYear(queryResult.getInt("AnneeInscription_etu"));
+
+            GroupDAO groupDAO = new GroupDAO();
+            student.setTDGroup(groupDAO.getById(queryResult.getString("Id_groupe_TD")));
+            student.setTPGroup(groupDAO.getById(queryResult.getString("Id_groupe_TP")));
+
+            PromotionDAO promoDAO = new PromotionDAO();
+            student.setPromotion(promoDAO.getById(queryResult.getInt("Id_promo")));
+
+            //On ajoute l'étudiant à la liste
+            students.add(student);
+        }
+
+        return students;
+    }
+
+    public List<Student> getByGroupId(String groupId) throws SQLException {
+        PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM etudiant WHERE Id_groupe_TD = ? OR Id_groupe_TP = ?;");
+        statement.setString(1, groupId);
+        statement.setString(2, groupId);
+
+        ResultSet queryResult = statement.executeQuery();
+
+        List <Student> students = new ArrayList<>();
+        while(queryResult.next())
+        {
+            Student student = new Student();
+
+            student.setNum(queryResult.getString("Num_etu"));
+            student.setName(queryResult.getString("Nom_etu"));
+            student.setNickname(queryResult.getString("Prenom_etu"));
+            student.setAge(queryResult.getInt("Age_etu"));
+            student.setBirthdate(queryResult.getDate("Date_etu"));
+            student.setDescription(queryResult.getString("Desc_etu"));
+            student.setPhotoUrl(queryResult.getString("Photo_etu"));
+            student.setHasRepeated(queryResult.getBoolean("Red_etu"));
+            student.setHasResign(queryResult.getBoolean("Dem_etu"));
+            student.setPassword(queryResult.getString("Motdepasse_etu"));
+            student.setRegistrationYear(queryResult.getInt("AnneeInscription_etu"));
+
+            GroupDAO groupDAO = new GroupDAO();
+            student.setTDGroup(groupDAO.getById(queryResult.getString("Id_groupe_TD")));
+            student.setTPGroup(groupDAO.getById(queryResult.getString("Id_groupe_TP")));
+
+            PromotionDAO promoDAO = new PromotionDAO();
+            student.setPromotion(promoDAO.getById(queryResult.getInt("Id_promo")));
+
+            //On ajoute l'étudiant à la liste
+            students.add(student);
+        }
+
+        return students;
+    }
+
     public Student getById(String id) throws SQLException
     {
         PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM etudiant WHERE Num_etu = ?;");

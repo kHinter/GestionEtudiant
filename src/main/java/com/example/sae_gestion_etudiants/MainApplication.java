@@ -1,6 +1,8 @@
 package com.example.sae_gestion_etudiants;
 
 import controllers.ConnectionPageController;
+import controllers.StudentController;
+import dao.StudentDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

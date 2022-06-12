@@ -66,9 +66,14 @@ public class ConnectionPageController {
 
                     //Changement vers la page d'accueil de l'étudiant
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Student/home.fxml"));
-                    Stage currentStage = (Stage) infoTextFlow.getScene().getWindow();
-                    currentStage.setScene(new Scene(fxmlLoader.load()));
-                    currentStage.show();
+                    Stage stage = (Stage) infoTextFlow.getScene().getWindow();
+                    stage.setScene(new Scene(fxmlLoader.load()));
+
+                    StudentHomeController controller = fxmlLoader.getController();
+                    controller.setConnectedStudent(student);
+                    controller.init();
+
+                    stage.show();
                 }
                 //Si on se connecte en tant que personnel de l'IUT
                 else if(staffDAO.getById(identifiantTextField.getText()) != null && staff.getPassword().equals(passwordTextField.getText()))
@@ -111,7 +116,8 @@ public class ConnectionPageController {
             catch (SQLException e)
             {
                 System.out.println("Erreur lors d'une requête :" + e.getMessage());
-            } catch (IOException e)
+            }
+            catch (IOException e)
             {
                 System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
             }
