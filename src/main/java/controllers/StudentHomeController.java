@@ -30,6 +30,8 @@ public class StudentHomeController {
     Student student = new Student();
 
     public void initialize(Stage stage) {
+
+        System.out.println("essais du controlleur qui marche");
         stage.setTitle("test");
 
         studentNameText.setText(student.getName());
@@ -37,7 +39,4 @@ public class StudentHomeController {
         groupChoiceBox.getItems().addAll("Promo","TD","TP");
 
     }
-
-
-
 }
