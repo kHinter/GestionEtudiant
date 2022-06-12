@@ -3,9 +3,13 @@ package controllers;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import models.Student;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class StudentHomeController {
 
@@ -16,11 +20,17 @@ public class StudentHomeController {
     private Text groupeNameText;
 
     @FXML
-    private ChoiceBox groupChoiceBox = new ChoiceBox(FXCollections.observableArrayList("Promo","TD","TP"));
+    private ChoiceBox groupChoiceBox;
 
-    Student student = new Student();
+    @FXML
+    private TableView listEtuTableView;
 
-    String selectStmt = "SELECT * FROM etudiant";
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        groupChoiceBox.getItems().add("Promo");
+        groupChoiceBox.getItems().add("TD");
+        groupChoiceBox.getItems().add("(TP");
+    }
 
 
 
