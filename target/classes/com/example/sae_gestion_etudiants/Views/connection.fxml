@@ -54,14 +54,14 @@
             </TextFlow>
             <VBox spacing="40.0">
                <children>
-                  <TextField fx:id="identifiantTextField" alignment="CENTER" prefHeight="30.0" promptText="Identifiant">
+                  <TextField fx:id="identifiantTextField" alignment="CENTER" prefHeight="30.0" promptText="Identifiant" text="14PER">
                      <font>
                         <Font name="Verdana" size="14.0" />
                      </font>
                   </TextField>
                </children>
             </VBox>
-            <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="30.0" promptText="Mot de passe">
+            <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="30.0" promptText="Mot de passe" text="wkPQL8Xw">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>

@@ -72,7 +72,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
+                  <HBox fx:id="infoPersoHBox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>

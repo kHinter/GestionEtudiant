@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SecretaryHomeController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="284.0" spacing="70.0" style="-fx-background-color: #263a7a;">
          <children>
@@ -156,7 +156,7 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <HBox fx:id="addGroupButton" alignment="CENTER" layoutX="367.0" layoutY="598.0" prefHeight="50.0" prefWidth="215.0" spacing="10.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;" AnchorPane.leftAnchor="367.0" AnchorPane.rightAnchor="334.0">
+            <HBox fx:id="addGroupButton" alignment="CENTER" layoutX="367.0" layoutY="598.0" onMouseClicked="#onAddGroupClicked" prefHeight="50.0" prefWidth="215.0" spacing="10.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;" AnchorPane.leftAnchor="367.0" AnchorPane.rightAnchor="334.0">
                <children>
                   <ImageView fitHeight="36.0" fitWidth="36.0">
                      <image>

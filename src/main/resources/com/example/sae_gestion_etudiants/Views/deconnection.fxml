@@ -20,8 +20,8 @@
       <Label text="Etes vous sûr de vouloir vous déconnecter ?" />
       <HBox alignment="CENTER" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #263a7a; -fx-background-radius: 10;" text="Confirmer" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: e6007c; -fx-background-radius: 10;" text="Annuler" textFill="WHITE" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#onConfirmClicked" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #263a7a; -fx-background-radius: 10;" text="Confirmer" textFill="WHITE" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelClicked" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: e6007c; -fx-background-radius: 10;" text="Annuler" textFill="WHITE" />
          </children>
       </HBox>
    </children>

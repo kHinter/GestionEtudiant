@@ -91,7 +91,7 @@ public class ConnectionPageController {
                     if(staff.getRoles().contains(secretary))
                     {
                         //Changement vers la page d'accueil de la secrétaire
-                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Secretary/secretaire.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Secretary/home.fxml"));
                         Stage currentStage = (Stage) infoTextFlow.getScene().getWindow();
                         currentStage.setScene(new Scene(fxmlLoader.load()));
                         currentStage.show();
