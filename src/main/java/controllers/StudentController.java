@@ -28,4 +28,6 @@ public abstract class StudentController {
     public abstract void init();
 
     protected abstract void onTrombinoscopeClicked();
+
+    protected abstract void onInfoPersoClicked();
 }

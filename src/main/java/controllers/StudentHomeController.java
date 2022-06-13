@@ -85,6 +85,29 @@ public class StudentHomeController extends StudentController implements Initiali
         currentStage.show();
     }
 
+    @FXML
+    protected void onInfoPersoClicked()
+    {
+        //Changement vers la page informations personelles de l'étudiant
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Student/infoPerso.fxml"));
+        Stage currentStage = (Stage) studentNameText.getScene().getWindow();
+
+        try
+        {
+            currentStage.setScene(new Scene(fxmlLoader.load()));
+        }
+        catch (IOException e)
+        {
+            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+        }
+
+        StudentInfoPersoController controller = fxmlLoader.getController();
+        controller.setConnectedStudent(getConnectedStudent());
+        controller.init();
+
+        currentStage.show();
+    }
+
     @Override
     public void init() {
         Student student = getConnectedStudent();

@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StudentHomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StudentHomeController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="284.0" spacing="70.0" style="-fx-background-color: #263a7a;">
          <children>
@@ -23,7 +14,7 @@
                <children>
                   <ImageView fitHeight="130.0" fitWidth="130.0">
                      <image>
-                        <Image url="@../../Images/iut_banniere_2.png" />
+                        <Image url="@../../Images/iut_banniere.png" />
                      </image>
                   </ImageView>
                   <Label contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="Étudiant" textAlignment="CENTER" textFill="WHITE">
@@ -73,7 +64,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
+                  <HBox fx:id="infoPersoHBox" alignment="CENTER_LEFT" layoutX="10.0" layoutY="75.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onInfoPersoClicked" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
