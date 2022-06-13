@@ -163,12 +163,12 @@
                         </VBox>
                         <VBox prefHeight="106.0" prefWidth="427.0" spacing="15.0">
                            <children>
-                              <Label fx:id="nameLabel" text="Remplace moi">
+                              <Label fx:id="nomLabel" text="Remplace moi">
                                  <font>
                                     <Font name="Verdana" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="nicknameLabel" layoutX="10.0" layoutY="10.0" text="Remplace moi">
+                              <Label fx:id="prenomLabel" layoutX="10.0" layoutY="10.0" text="Remplace moi">
                                  <font>
                                     <Font name="Verdana" size="20.0" />
                                  </font>

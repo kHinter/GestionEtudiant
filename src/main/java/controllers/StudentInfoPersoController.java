@@ -31,8 +31,6 @@ public class StudentInfoPersoController extends StudentController{
 
         Image image = new Image("file:src/main/resources/com/example/sae_gestion_etudiants/Images/ProfilePictures/" + student.getPhotoUrl() + ".jpg");
         profilePicture.setImage(image);
-
-
     }
 
 }
