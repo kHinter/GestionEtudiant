@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="IUTLogoImageView" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConnectionPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="IUTLogoImageView" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConnectionPageController">
    <top>
       <ImageView fx:id="IUTLogoImageView" fitHeight="81.0" fitWidth="299.0" BorderPane.alignment="CENTER">
          <image>
@@ -46,14 +54,14 @@
             </TextFlow>
             <VBox spacing="40.0">
                <children>
-                  <TextField fx:id="identifiantTextField" alignment="CENTER" prefHeight="30.0" promptText="Identifiant" text="10ETU">
+                  <TextField fx:id="identifiantTextField" alignment="CENTER" prefHeight="30.0" promptText="Identifiant">
                      <font>
                         <Font name="Verdana" size="14.0" />
                      </font>
                   </TextField>
                </children>
             </VBox>
-            <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="30.0" promptText="Mot de passe" text="cAD5gtuz">
+            <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="30.0" promptText="Mot de passe">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>

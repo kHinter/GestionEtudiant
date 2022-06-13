@@ -92,6 +92,7 @@ public class StudentTrombinoscopeController extends StudentController implements
                     }
                 }
 
+                trombinoscopeFlowPane.getChildren().clear();
                 for(Student student : studentList)
                 {
                     VBox vbox = new VBox();
@@ -103,7 +104,6 @@ public class StudentTrombinoscopeController extends StudentController implements
                     ImageView imageView = new ImageView(new Image(MainApplication.class.getResource("Images/person.png").toExternalForm()));
 
                     vbox.getChildren().add(imageView);
-                    Text text = new Text();
 
                     vbox.getChildren().add(new Text(student.getNickname() + " " + student.getName().toUpperCase()));
                     trombinoscopeFlowPane.getChildren().add(vbox);
