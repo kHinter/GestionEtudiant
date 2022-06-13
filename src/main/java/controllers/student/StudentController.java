@@ -1,4 +1,4 @@
-package controllers;
+package controllers.student;
 
 import com.example.sae_gestion_etudiants.MainApplication;
 import javafx.fxml.FXML;

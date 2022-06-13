@@ -1,7 +1,7 @@
 package controllers;
 
 import com.example.sae_gestion_etudiants.MainApplication;
-import dao.RoleDAO;
+import controllers.student.StudentHomeController;
 import dao.StaffDAO;
 import dao.StudentDAO;
 import javafx.fxml.FXML;
@@ -21,8 +21,6 @@ import models.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConnectionPageController {
 

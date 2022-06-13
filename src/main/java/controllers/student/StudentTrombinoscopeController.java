@@ -1,6 +1,7 @@
-package controllers;
+package controllers.student;
 
 import com.example.sae_gestion_etudiants.MainApplication;
+import controllers.student.StudentController;
 import dao.StudentDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

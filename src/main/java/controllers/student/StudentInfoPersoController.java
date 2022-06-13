@@ -1,5 +1,6 @@
-package controllers;
+package controllers.student;
 
+import controllers.student.StudentController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -7,13 +8,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import models.Student;
 
-public class StudentInfoPersoController extends StudentController{
+public class StudentInfoPersoController extends StudentController {
 
     @FXML
     private Text studentNameText,groupeNameText;
 
     @FXML
-    private Label nameLabel, nicknameLabel,ageLabel;
+    private Label nameLabel, nicknameLabel ,ageLabel;
 
     @FXML
     private ImageView profilePicture;

@@ -1,8 +1,5 @@
 package com.example.sae_gestion_etudiants;
 
-import controllers.ConnectionPageController;
-import controllers.StudentController;
-import dao.StudentDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,7 +7,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class MainApplication extends Application {
 
