@@ -72,4 +72,9 @@ public class StudentInfoPersoController extends StudentController implements Ini
         currentStage.show();
     }
 
+
+    protected void onInfoPersoClicked() {
+
+    }
+
 }
