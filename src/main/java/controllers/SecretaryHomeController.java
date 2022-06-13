@@ -29,6 +29,24 @@ public class SecretaryHomeController extends SecretaryController
         stage.show();
     }
 
+    public void onAddStudentClicked(MouseEvent mouseEvent) {
+        //Changement vers la fenêtre d'ajout de groupe
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Secretary/addStudent.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Nouvel Étudiant");
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        try
+        {
+            stage.setScene(new Scene(fxmlLoader.load()));
+        }
+        catch (IOException e)
+        {
+            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+        }
+        stage.show();
+    }
+
     @Override
     public void init() {
         // Ajout des groupes d'étudiants sur la page d'accueil
