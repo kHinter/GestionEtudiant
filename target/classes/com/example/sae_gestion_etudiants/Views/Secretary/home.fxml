@@ -94,7 +94,7 @@
                   <Font name="Arial Black" size="28.0" />
                </font>
             </Label>
-            <VBox layoutX="104.0" layoutY="203.0" prefHeight="294.0" prefWidth="228.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;">
+            <VBox layoutX="104.0" layoutY="203.0" prefHeight="294.0" prefWidth="228.0" spacing="5.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;">
                <children>
                   <AnchorPane prefHeight="67.0" prefWidth="228.0" style="-fx-background-color: e6007c; -fx-background-radius: 15;">
                      <children>
@@ -119,6 +119,14 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="67.0" prefWidth="220.0" style="-fx-background-color: e6007c; -fx-background-radius: 15;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </VBox>
                </children>
             </VBox>
             <VBox layoutX="385.0" layoutY="203.0" prefHeight="294.0" prefWidth="228.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15;">

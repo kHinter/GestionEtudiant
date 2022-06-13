@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentInfoPersoController extends StudentController implements Initializable {
+public class StudentInfoPersoController extends StudentController{
 
     @FXML
     private Text studentNameText,groupeNameText;
@@ -41,39 +41,6 @@ public class StudentInfoPersoController extends StudentController implements Ini
         Image image = new Image("file:src/main/resources/com/example/sae_gestion_etudiants/Images/ProfilePictures/" + student.getPhotoUrl() + ".jpg");
         profilePicture.setImage(image);
 
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-
-    }
-
-    @FXML
-    protected void onTrombinoscopeClicked()
-    {
-        //Changement vers la page trombinoscope de l'étudiant
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Student/trombinoscope.fxml"));
-        Stage currentStage = (Stage) studentNameText.getScene().getWindow();
-
-        try
-        {
-            currentStage.setScene(new Scene(fxmlLoader.load()));
-        }
-        catch (IOException e)
-        {
-            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
-        }
-
-        StudentTrombinoscopeController controller = fxmlLoader.getController();
-        controller.setConnectedStudent(getConnectedStudent());
-        controller.init();
-
-        currentStage.show();
-    }
-
-
-    protected void onInfoPersoClicked() {
 
     }
 

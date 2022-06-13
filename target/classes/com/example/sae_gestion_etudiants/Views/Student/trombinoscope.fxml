@@ -142,7 +142,7 @@
                   </Text>
                </children>
             </TextFlow>
-            <Label layoutX="373.0" layoutY="24.0" text="Trombinoscope" textFill="#263a7a" AnchorPane.bottomAnchor="638.4" AnchorPane.leftAnchor="373.0" AnchorPane.rightAnchor="339.8" AnchorPane.topAnchor="24.00000000000002">
+            <Label layoutX="373.0" layoutY="24.0" text="Trombinoscope" textFill="#263a7a" AnchorPane.leftAnchor="373.0" AnchorPane.rightAnchor="339.8">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
