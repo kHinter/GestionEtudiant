@@ -51,6 +51,29 @@ public abstract class StudentController {
     }
 
     @FXML
+    protected void onInfoPersoClicked(MouseEvent event)
+    {
+        //Changement vers la page informations personelles de l'étudiant
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Student/infoPerso.fxml"));
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        try
+        {
+            currentStage.setScene(new Scene(fxmlLoader.load()));
+
+            StudentController controller = fxmlLoader.getController();
+            controller.setConnectedStudent(getConnectedStudent());
+            controller.init();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+        }
+
+        currentStage.show();
+    }
+
+    @FXML
     protected void onStudentListClicked(MouseEvent event)
     {
         //Changement vers la page d'accueil de l'étudiant et la liste des étudiants

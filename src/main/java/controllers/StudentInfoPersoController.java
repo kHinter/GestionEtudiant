@@ -72,7 +72,7 @@ public class StudentInfoPersoController extends StudentController implements Ini
         currentStage.show();
     }
 
-    @Override
+
     protected void onInfoPersoClicked() {
 
     }
