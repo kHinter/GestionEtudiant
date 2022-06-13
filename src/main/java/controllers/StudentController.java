@@ -1,12 +1,12 @@
 package controllers;
 
 import com.example.sae_gestion_etudiants.MainApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Student;
 
@@ -27,7 +27,70 @@ public abstract class StudentController {
 
     public abstract void init();
 
-    protected abstract void onTrombinoscopeClicked();
+    @FXML
+    protected void onTrombinoscopeClicked(MouseEvent event)
+    {
+        //Changement vers la page trombinoscope de l'étudiant
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Student/trombinoscope.fxml"));
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-    protected abstract void onInfoPersoClicked();
+        try
+        {
+            currentStage.setScene(new Scene(fxmlLoader.load()));
+
+            StudentController controller = fxmlLoader.getController();
+            controller.setConnectedStudent(getConnectedStudent());
+            controller.init();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+        }
+
+        currentStage.show();
+    }
+
+    @FXML
+    protected void onStudentListClicked(MouseEvent event)
+    {
+        //Changement vers la page d'accueil de l'étudiant et la liste des étudiants
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Student/home.fxml"));
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        try
+        {
+            currentStage.setScene(new Scene(fxmlLoader.load()));
+
+            StudentController controller = fxmlLoader.getController();
+            controller.setConnectedStudent(getConnectedStudent());
+            controller.init();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+        }
+
+        currentStage.show();
+    }
+
+    @FXML
+    protected void onDeconnectionClicked(MouseEvent event)
+    {
+        //Changement vers la page d'accueil de l'étudiant et la liste des étudiants
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/deconnection.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Déconnexion");
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        try
+        {
+            stage.setScene(new Scene(fxmlLoader.load()));
+        }
+        catch (IOException e)
+        {
+            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+        }
+
+        stage.show();
+    }
 }
