@@ -55,7 +55,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
+                  <HBox fx:id="dsconnect" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onDeconnectionClicked" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>

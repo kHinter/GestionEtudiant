@@ -27,4 +27,25 @@ public abstract class SecretaryController {
     }
 
     public abstract void init();
+
+    @FXML
+    protected void onDeconnectionClicked(MouseEvent event)
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/deconnection.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Déconnexion");
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        try
+        {
+            stage.setScene(new Scene(fxmlLoader.load()));
+        }
+        catch (IOException e)
+        {
+            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+        }
+
+        stage.show();
+    }
+
 }
