@@ -97,7 +97,10 @@ public class ConnectionPageController {
                     else if(staff.getRoles().contains(teacher))
                     {
                         //Changement vers la page d'accueil de l'enseignant
-
+                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Teacher/home.fxml"));
+                        Stage currentStage = (Stage) infoTextFlow.getScene().getWindow();
+                        currentStage.setScene(new Scene(fxmlLoader.load()));
+                        currentStage.show();
                     }
                 }
                 else
