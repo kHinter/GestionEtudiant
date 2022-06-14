@@ -28,10 +28,14 @@ public class StudentInfoPersoController extends StudentController {
         nicknameLabel.setText(student.getNickname());
         ageLabel.setText(Integer.toString(student.getAge()));
 
-        System.out.println(student.getPhotoUrl());
-
         Image image = new Image("file:src/main/resources/com/example/sae_gestion_etudiants/Images/ProfilePictures/" + student.getPhotoUrl() + ".jpg");
-        profilePicture.setImage(image);
+        if(!image.isError()){
+            profilePicture.setImage(image);
+        }
+        else{
+            image = new Image("file:src/main/resources/com/example/sae_gestion_etudiants/Images/ProfilePictures/default.jpg");
+            profilePicture.setImage(image);
+        }
     }
 
 }
