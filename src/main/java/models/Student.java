@@ -18,13 +18,13 @@ public class Student
     private int registrationYear;
     private Group TDGroup;
     private Group TPGroup;
-    private Promotion promotion;
+    private Group promotion;
 
-    public Promotion getPromotion() {
+    public Group getPromotion() {
         return promotion;
     }
 
-    public void setPromotion(Promotion promotion)
+    public void setPromotion(Group promotion)
     {
         this.promotion = promotion;
     }

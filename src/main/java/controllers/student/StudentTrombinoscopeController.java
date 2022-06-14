@@ -49,13 +49,13 @@ public class StudentTrombinoscopeController extends StudentController implements
                 List<Student> studentList = null;
                 if(newValue.equals("Promo"))
                 {
-                    String promotionName = getConnectedStudent().getPromotion().getName();
+                    String promotionName = getConnectedStudent().getPromotion().getId();
                     groupNameText.setText(promotionName);
 
                     StudentDAO dao = new StudentDAO();
                     try
                     {
-                        studentList = dao.getByPromotionName(promotionName);
+                        studentList = dao.getByGroupId(promotionName);
 
                     } catch (SQLException e)
                     {

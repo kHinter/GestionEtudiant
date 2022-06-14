@@ -70,13 +70,13 @@ public class StudentHomeController extends StudentController implements Initiali
                 List<Student> studentList = null;
                 if(newValue.equals("Promo"))
                 {
-                    String promotionName = getConnectedStudent().getPromotion().getName();
+                    String promotionName = getConnectedStudent().getPromotion().getId();
                     groupNameText.setText(promotionName);
 
                     StudentDAO dao = new StudentDAO();
                     try
                     {
-                        studentList = dao.getByPromotionName(promotionName);
+                        studentList = dao.getByGroupId(promotionName);
 
                     } catch (SQLException e)
                     {
@@ -122,7 +122,7 @@ public class StudentHomeController extends StudentController implements Initiali
                     item.put("name", student.getName());
                     item.put("age", student.getAge());
                     item.put("birthdate", student.getBirthdate());
-                    item.put("promotion", student.getPromotion().getName());
+                    item.put("promotion", student.getPromotion().getId());
                     item.put("TD", "TD" + student.getTDGroup().getId());
                     item.put("TP", "TP" + student.getTPGroup().getId());
                     item.put("description", student.getDescription());
