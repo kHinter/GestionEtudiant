@@ -8,22 +8,33 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import models.Group;
+import models.Staff;
 import models.Student;
 
 import java.io.IOException;
 
 public abstract class SecretaryController {
 
-    private Student connectedStudent;
+    private Staff connectedStaff;
+    private Group currentGroup;
 
-    public void setConnectedStudent(Student student)
-    {
-        this.connectedStudent = student;
+    public Group getCurrentGroup() {
+        return currentGroup;
     }
 
-    public Student getConnectedStudent()
+    public void setCurrentGroup(Group currentGroup) {
+        this.currentGroup = currentGroup;
+    }
+
+    public void setConnectedStaff(Staff staff)
     {
-        return this.connectedStudent;
+        this.connectedStaff = staff;
+    }
+
+    public Staff getConnectedStaff()
+    {
+        return this.connectedStaff;
     }
 
     public abstract void init();

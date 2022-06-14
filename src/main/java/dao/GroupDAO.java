@@ -4,9 +4,12 @@ import com.example.sae_gestion_etudiants.DatabaseConnection;
 import javafx.scene.chart.PieChart;
 import models.Group;
 
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupDAO
 {
@@ -30,6 +33,29 @@ public class GroupDAO
             return group;
         }
         return null;
+    }
+
+    public List<Group> getAllPromotions() throws SQLException {
+        PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM GROUPE WHERE Type_groupe = 'PROMOTION';");
+
+        ResultSet queryResults = statement.executeQuery();
+        List<Group> promotionsList = new ArrayList<>();
+
+        while(queryResults.next())
+        {
+            Group group = new Group();
+            group.setId(queryResults.getString("Id_groupe"));
+            group.setType(queryResults.getString("Type_groupe"));
+
+            String parenteGroup = queryResults.getString("Parente_groupe");
+            if(parenteGroup != null)
+            {
+                group.setParent(getById(parenteGroup));
+                group.getParent().addChildren(group);
+            }
+            promotionsList.add(group);
+        }
+        return promotionsList;
     }
 
     private boolean isIdExists(String id) throws SQLException {

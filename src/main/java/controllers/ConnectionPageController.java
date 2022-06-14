@@ -1,6 +1,7 @@
 package controllers;
 
 import com.example.sae_gestion_etudiants.MainApplication;
+import controllers.secretary.SecretaryHomeController;
 import controllers.student.StudentHomeController;
 import dao.StaffDAO;
 import dao.StudentDAO;
@@ -92,6 +93,12 @@ public class ConnectionPageController {
                         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Secretary/home.fxml"));
                         Stage currentStage = (Stage) infoTextFlow.getScene().getWindow();
                         currentStage.setScene(new Scene(fxmlLoader.load()));
+
+                        SecretaryHomeController controller = fxmlLoader.getController();
+                        controller.setConnectedStaff(staff);
+                        controller.setCurrentGroup(null); //Fixé à null pour l'accueil avec la liste des groupes promotion
+                        controller.init();
+
                         currentStage.show();
                     }
                     else if(staff.getRoles().contains(teacher))
