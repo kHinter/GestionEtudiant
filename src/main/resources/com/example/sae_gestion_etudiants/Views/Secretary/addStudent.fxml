@@ -20,6 +20,7 @@
                   <TextField fx:id="idField" prefHeight="26.0" prefWidth="69.0" promptText="Identifiant" />
                   <TextField fx:id="nicknameField" prefHeight="26.0" prefWidth="96.0" promptText="Prénom" />
                   <TextField fx:id="nameField" prefHeight="26.0" prefWidth="122.0" promptText="Nom" />
+                  <TextField fx:id="passwordField" prefHeight="25.0" prefWidth="92.0" promptText="Mot de passe" />
                   <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="136.0" promptText="Date de naissance" />
                   <ComboBox fx:id="promotionComboBox" layoutX="22.0" layoutY="91.0" prefHeight="26.0" prefWidth="101.0" promptText="Promotion">
                      <opaqueInsets>
@@ -27,7 +28,7 @@
                      </opaqueInsets>
                   </ComboBox>
                   <ComboBox fx:id="TDComboBox" prefHeight="26.0" prefWidth="66.0" promptText="TD" />
-                  <ComboBox fx:id="TPComboBox" layoutX="323.0" layoutY="56.0" prefHeight="26.0" prefWidth="59.0" promptText="TP" />
+                  <ComboBox fx:id="TPComboBox" layoutX="323.0" layoutY="56.0" prefHeight="26.0" prefWidth="73.0" promptText="TP" />
                   <VBox alignment="CENTER" spacing="10.0">
                      <children>
                         <Label text="Description" textFill="#263a7a">

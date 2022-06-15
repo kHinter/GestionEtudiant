@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class AddStudentController extends SecretaryController implements Initializable{
@@ -31,7 +32,7 @@ public class AddStudentController extends SecretaryController implements Initial
     private Button cancelButton, confirmButton;
 
     @FXML
-    private TextField idField,nicknameField,nameField;
+    private TextField idField,nicknameField,nameField,passwordField;
 
     @FXML
     private TextArea descField;
@@ -88,10 +89,18 @@ public class AddStudentController extends SecretaryController implements Initial
 
             student.setPhotoUrl(image.getImage().getUrl());
 
+            student.setPassword(passwordField.getText());
+
+            student.setRegistrationYear(Calendar.getInstance().get(Calendar.YEAR));
+
+            student.setHasRepeated(false);
+
+            student.setHasResign(false);
+
             try {
                 studentDAO.save(student);
             } catch (SQLException e) {
-                System.out.println("Impossible d'ajouter l'etudiant " + student.getName() + " " + student.getNickname());
+                throw new RuntimeException(e);
             }
         }
         else{
@@ -126,7 +135,7 @@ public class AddStudentController extends SecretaryController implements Initial
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException();
         }
 
     }
