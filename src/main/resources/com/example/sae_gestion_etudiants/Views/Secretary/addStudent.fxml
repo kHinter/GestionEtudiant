@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="460.0" spacing="30.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.secretary.AddStudentController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="460.0" spacing="30.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.secretary.AddStudentController">
    <children>
       <VBox alignment="CENTER" spacing="25.0">
          <children>
@@ -23,19 +15,20 @@
                   <Font name="Arial Black" size="20.0" />
                </font>
             </Label>
-            <FlowPane alignment="CENTER" hgap="15.0" vgap="20.0">
+            <FlowPane alignment="CENTER" hgap="15.0" vgap="15.0">
                <children>
-                  <TextField prefHeight="26.0" prefWidth="69.0" promptText="Identifiant" />
-                  <TextField prefHeight="26.0" prefWidth="96.0" promptText="Prénom" />
-                  <TextField prefHeight="26.0" prefWidth="122.0" promptText="Nom" />
-                  <DatePicker prefHeight="26.0" prefWidth="136.0" promptText="Date de naissance" />
-                  <ComboBox layoutX="22.0" layoutY="91.0" prefHeight="26.0" prefWidth="101.0" promptText="Promotion">
+                  <TextField fx:id="idField" prefHeight="26.0" prefWidth="69.0" promptText="Identifiant" />
+                  <TextField fx:id="nicknameField" prefHeight="26.0" prefWidth="96.0" promptText="Prénom" />
+                  <TextField fx:id="nameField" prefHeight="26.0" prefWidth="122.0" promptText="Nom" />
+                  <TextField fx:id="passwordField" prefHeight="25.0" prefWidth="92.0" promptText="Mot de passe" />
+                  <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="136.0" promptText="Date de naissance" />
+                  <ComboBox fx:id="promotionComboBox" layoutX="22.0" layoutY="91.0" prefHeight="26.0" prefWidth="101.0" promptText="Promotion">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                   </ComboBox>
-                  <ComboBox prefHeight="26.0" prefWidth="66.0" promptText="TD" />
-                  <ComboBox layoutX="323.0" layoutY="56.0" prefHeight="26.0" prefWidth="59.0" promptText="TP" />
+                  <ComboBox fx:id="TDComboBox" prefHeight="26.0" prefWidth="66.0" promptText="TD" />
+                  <ComboBox fx:id="TPComboBox" layoutX="323.0" layoutY="56.0" prefHeight="26.0" prefWidth="73.0" promptText="TP" />
                   <VBox alignment="CENTER" spacing="10.0">
                      <children>
                         <Label text="Description" textFill="#263a7a">
@@ -43,17 +36,17 @@
                               <Font name="Arial Black" size="16.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="60.0" prefWidth="300.0" />
+                        <TextArea fx:id="descField" prefHeight="60.0" prefWidth="300.0" />
                      </children>
                   </VBox>
-                  <HBox alignment="CENTER" spacing="30.0">
+                  <HBox alignment="CENTER" prefHeight="74.0" prefWidth="226.0" spacing="30.0">
                      <children>
-                        <ImageView fitHeight="82.0" fitWidth="74.0">
+                        <ImageView fx:id="image" fitHeight="82.0" fitWidth="74.0">
                            <image>
-                              <Image url="@../../Images/frame.png" />
+                              <Image url="@../../Images/ProfilePictures/default.jpg" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" text="Importer une photo" />
+                        <Button fx:id="importButton" mnemonicParsing="false" onAction="#onImportAction" text="Importer une photo" />
                      </children>
                   </HBox>
                </children>
@@ -63,6 +56,7 @@
             <Insets top="10.0" />
          </VBox.margin>
       </VBox>
+      <Label fx:id="errorMessage" prefHeight="18.0" prefWidth="173.0" text="Veuillez remplir tous les champs" textFill="RED" visible="false" />
       <HBox alignment="CENTER" prefHeight="42.0" prefWidth="405.0" spacing="35.0">
          <children>
             <Button fx:id="confirmButton" layoutX="228.0" layoutY="16.0" mnemonicParsing="false" onAction="#onConfirmClicked" prefHeight="41.0" prefWidth="95.0" style="-fx-background-color: #263a7a; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
@@ -80,7 +74,7 @@
             <Insets />
          </opaqueInsets>
          <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" />
          </VBox.margin>
       </HBox>
    </children>
