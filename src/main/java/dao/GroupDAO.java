@@ -58,6 +58,53 @@ public class GroupDAO
         return promotionsList;
     }
 
+    public List<Group> getAllTD() throws SQLException {
+        PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM GROUPE WHERE Type_groupe = 'TD';");
+
+        ResultSet queryResults = statement.executeQuery();
+        List<Group> promotionsList = new ArrayList<>();
+
+        while(queryResults.next())
+        {
+            Group group = new Group();
+            group.setId(queryResults.getString("Id_groupe"));
+            group.setType(queryResults.getString("Type_groupe"));
+
+            String parenteGroup = queryResults.getString("Parente_groupe");
+            if(parenteGroup != null)
+            {
+                group.setParent(getById(parenteGroup));
+                group.getParent().addChildren(group);
+            }
+            promotionsList.add(group);
+        }
+        return promotionsList;
+    }
+
+    public List<Group> getAllTP() throws SQLException {
+        PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM GROUPE WHERE Type_groupe = 'TP';");
+
+        ResultSet queryResults = statement.executeQuery();
+        List<Group> promotionsList = new ArrayList<>();
+
+        while(queryResults.next())
+        {
+            Group group = new Group();
+            group.setId(queryResults.getString("Id_groupe"));
+            group.setType(queryResults.getString("Type_groupe"));
+
+            String parenteGroup = queryResults.getString("Parente_groupe");
+            if(parenteGroup != null)
+            {
+                group.setParent(getById(parenteGroup));
+                group.getParent().addChildren(group);
+            }
+            promotionsList.add(group);
+        }
+        return promotionsList;
+    }
+
+
     private boolean isIdExists(String id) throws SQLException {
         PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT Id_groupe FROM GROUPE WHERE Id_groupe = ?;");
         statement.setString(1, id);

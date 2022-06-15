@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 import models.Group;
 
 import java.io.IOException;
+import java.nio.file.attribute.GroupPrincipal;
 import java.sql.SQLException;
+import java.util.List;
 
 public class SecretaryHomeController extends SecretaryController
 {
@@ -60,20 +62,28 @@ public class SecretaryHomeController extends SecretaryController
     public void init()
     {
         // Ajout des groupes d'étudiants sur la page d'accueil
+        List<Group> groupList = null;
+        GroupDAO groupDAO = new GroupDAO();
+
         if(getCurrentGroup() == null)
         {
-            GroupDAO groupDAO = new GroupDAO();
             try
             {
-                for(Group promotion : groupDAO.getAllPromotions())
-                {
-
-                }
+                groupList = groupDAO.getAllPromotions();
             }
             catch (SQLException e)
             {
                 System.out.println("Erreur lors d'une requête :" + e.getMessage());
             }
+        }
+        else if(getCurrentGroup().getType() == "PROMOTION" || getCurrentGroup().getType() == "TD")
+        {
+            groupList = getCurrentGroup().getChilrens();
+        }
+
+        for(Group group : groupList)
+        {
+            
         }
     }
 }

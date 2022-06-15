@@ -133,7 +133,7 @@
                   </Text>
                </children>
             </TextFlow>
-            <FlowPane layoutX="26.0" layoutY="205.0" prefHeight="360.0" prefWidth="862.0">
+            <FlowPane layoutX="26.0" layoutY="179.0" prefHeight="360.0" prefWidth="862.0">
                <children>
                   <VBox prefHeight="254.0" prefWidth="228.0" spacing="5.0" style="-fx-background-color: #808791; -fx-background-radius: 15;">
                      <children>
