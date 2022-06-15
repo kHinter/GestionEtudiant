@@ -2,11 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -30,7 +30,7 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fx:id="studentNameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Remplace moi">
+                  <Text fx:id="secretaryNameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Remplace moi">
                      <font>
                         <Font name="Verdana" size="18.0" />
                      </font>
@@ -133,95 +133,99 @@
                   </Text>
                </children>
             </TextFlow>
-            <FlowPane layoutX="26.0" layoutY="179.0" prefHeight="360.0" prefWidth="862.0">
-               <children>
-                  <VBox prefHeight="254.0" prefWidth="228.0" spacing="5.0" style="-fx-background-color: #808791; -fx-background-radius: 15;">
+            <ScrollPane layoutX="49.0" layoutY="202.0" prefHeight="296.0" prefWidth="818.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0">
+               <content>
+                  <HBox fx:id="groupListHBox" prefHeight="266.0" prefWidth="818.0" spacing="15.0">
                      <children>
-                        <AnchorPane prefHeight="67.0" prefWidth="228.0" style="-fx-background-color: e6007c; -fx-background-radius: 15;">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="260.0" prefWidth="228.0" spacing="5.0" style="-fx-background-color: #808791; -fx-background-radius: 15;">
                            <children>
-                              <ImageView fitHeight="34.0" fitWidth="29.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Images/arrow_down.png" />
-                                 </image>
-                              </ImageView>
-                              <TextFlow layoutX="81.0" layoutY="22.0" prefHeight="16.0" prefWidth="66.0" textAlignment="CENTER">
+                              <AnchorPane prefHeight="67.0" style="-fx-background-color: e6007c; -fx-background-radius: 15;">
                                  <children>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TD12">
-                                       <font>
-                                          <Font name="Verdana" size="18.0" />
-                                       </font>
-                                    </Text>
+                                    <ImageView fitHeight="34.0" fitWidth="29.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Images/arrow_down.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextFlow layoutX="81.0" layoutY="22.0" prefHeight="16.0" prefWidth="66.0" textAlignment="CENTER">
+                                       <children>
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TD12">
+                                             <font>
+                                                <Font name="Verdana" size="18.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                    <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="185.0" layoutY="19.0">
+                                       <image>
+                                          <Image url="@../../Images/bin_icon.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
-                              </TextFlow>
-                              <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="185.0" layoutY="19.0">
-                                 <image>
-                                    <Image url="@../../Images/bin_icon.png" />
-                                 </image>
-                              </ImageView>
+                              </AnchorPane>
+                              <VBox prefHeight="178.0" prefWidth="218.0" spacing="4.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="218.0" spacing="15.0" style="-fx-background-color: #263a7a; -fx-background-radius: 15;">
+                                       <children>
+                                          <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets left="8.0" />
+                                             </HBox.margin>
+                                             <image>
+                                                <Image url="@../../Images/photo_icon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label alignment="CENTER" text="Trombinoscope" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="218.0" spacing="15.0" style="-fx-background-color: #263a7a; -fx-background-radius: 15;">
+                                       <children>
+                                          <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets left="8.0" />
+                                             </HBox.margin>
+                                             <image>
+                                                <Image url="@../../Images/multiple_users.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label alignment="CENTER" text="Liste des étudiants" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="69.0" prefHeight="55.0" prefWidth="218.0" spacing="15.0" style="-fx-background-color: #263a7a; -fx-background-radius: 15;">
+                                       <children>
+                                          <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets left="8.0" />
+                                             </HBox.margin>
+                                             <image>
+                                                <Image url="@../../Images/hierarchy.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label alignment="CENTER" text="Voir les sous-groupes" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </VBox>
                            </children>
-                        </AnchorPane>
-                        <VBox prefHeight="178.0" prefWidth="218.0" spacing="4.0">
-                           <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="218.0" spacing="15.0" style="-fx-background-color: #263a7a; -fx-background-radius: 15;">
-                                 <children>
-                                    <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets left="8.0" />
-                                       </HBox.margin>
-                                       <image>
-                                          <Image url="@../../Images/photo_icon.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="CENTER" text="Trombinoscope" textFill="WHITE">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="218.0" spacing="15.0" style="-fx-background-color: #263a7a; -fx-background-radius: 15;">
-                                 <children>
-                                    <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets left="8.0" />
-                                       </HBox.margin>
-                                       <image>
-                                          <Image url="@../../Images/multiple_users.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="CENTER" text="Liste des étudiants" textFill="WHITE">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="69.0" prefHeight="55.0" prefWidth="218.0" spacing="15.0" style="-fx-background-color: #263a7a; -fx-background-radius: 15;">
-                                 <children>
-                                    <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets left="8.0" />
-                                       </HBox.margin>
-                                       <image>
-                                          <Image url="@../../Images/hierarchy.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="CENTER" text="Voir les sous-groupes" textFill="WHITE">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </VBox.margin>
                         </VBox>
                      </children>
-                  </VBox>
-               </children>
-            </FlowPane>
+                  </HBox>
+               </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
    </center>

@@ -3,10 +3,7 @@ package dao;
 import com.example.sae_gestion_etudiants.DatabaseConnection;
 import models.Student;
 
-import java.sql.Array;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,8 +130,24 @@ public class StudentDAO {
             statement.setString(3, student.getNickname());
             statement.setInt(4, student.getAge());
             statement.setDate(5, student.getBirthdate());
-            statement.setString(6, student.getDescription());
-            statement.setString(7, student.getPhotoUrl());
+
+            if(student.getDescription() == null)
+            {
+                statement.setNull(6, Types.NULL);
+            }
+            else
+            {
+                statement.setString(6, student.getDescription());
+            }
+
+            if(student.getPhotoUrl() == null)
+            {
+                statement.setNull(7, Types.NULL);
+            }
+            else
+            {
+                statement.setString(7, student.getPhotoUrl());
+            }
             statement.setBoolean(8, student.isHasRepeated());
             statement.setBoolean(9, student.isHasResign());
             statement.setString(10, student.getPassword());
