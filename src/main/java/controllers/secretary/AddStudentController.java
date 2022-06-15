@@ -103,6 +103,10 @@ public class AddStudentController extends SecretaryController implements Initial
         else{
             errorMessage.setVisible(true);
         }
+
+        Stage stage = (Stage) confirmButton.getScene().getWindow();
+        stage.close();
+
     }
 
     public void onImportAction(ActionEvent actionEvent) {
@@ -123,45 +127,20 @@ public class AddStudentController extends SecretaryController implements Initial
             for(Group group : groupDAO.getAllPromotions()){
                 promotionComboBox.getItems().add(group.getId());
             }
+            for(Group group : groupDAO.getAllTD()){
+                TDComboBox.getItems().add(group.getId());
+            }
+            for(Group group : groupDAO.getAllTP()){
+                TPComboBox.getItems().add(group.getId());
+            }
         } catch (SQLException e) {
             throw new RuntimeException();
         }
-
-        promotionComboBox.valueProperty().addListener(new ChangeListener<String>() {
-
-            @Override
-            public void changed(ObservableValue observableValue, String oldValue, String newValue) {
-                try {
-                    TDComboBox.getItems().clear();
-                    for(Group group : groupDAO.getById(promotionComboBox.getValue()).getChilrens()){
-                        System.out.println(group.getId());
-                        TDComboBox.getItems().add(group.getId());
-                    }
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-
-        TDComboBox.valueProperty().addListener(new ChangeListener<String>() {
-
-            @Override
-            public void changed(ObservableValue observableValue, String oldValue, String newValue) {
-                try {
-                    TPComboBox.getItems().clear();
-                    for(Group group : groupDAO.getById(TDComboBox.getValue()).getChilrens()){
-                        TPComboBox.getItems().add(group.getId());
-                    }
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        init();
+
     }
 }
