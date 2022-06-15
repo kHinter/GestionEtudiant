@@ -14,10 +14,10 @@ public class StudentInfoPersoController extends StudentController {
     private Text studentNameText,groupeNameText;
 
     @FXML
-    private Label nameLabel, nicknameLabel ,ageLabel;
+    ImageView profilePicture;
 
     @FXML
-    private ImageView profilePicture;
+    private Label nameLabel, nicknameLabel ,ageLabel, promoLabel, groupeTdLabel, groupeTpLabel, descriptionLabel;
 
     @Override
     public void init() {
@@ -27,15 +27,18 @@ public class StudentInfoPersoController extends StudentController {
         nameLabel.setText(student.getName());
         nicknameLabel.setText(student.getNickname());
         ageLabel.setText(Integer.toString(student.getAge()));
+        promoLabel.setText(student.getPromotion().getId());
+        groupeTdLabel.setText(student.getTDGroup().getId());
+        groupeTpLabel.setText(student.getTPGroup().getId());
 
-        Image image = new Image("file:src/main/resources/com/example/sae_gestion_etudiants/Images/ProfilePictures/" + student.getPhotoUrl() + ".jpg");
-        if(!image.isError()){
-            profilePicture.setImage(image);
+        if(student.getDescription().equals("None")){
+            descriptionLabel.setText(" ");
+        }else{
+            descriptionLabel.setText(student.getDescription());
         }
-        else{
-            image = new Image("file:src/main/resources/com/example/sae_gestion_etudiants/Images/ProfilePictures/default.jpg");
-            profilePicture.setImage(image);
-        }
+
+        Image image = new Image("file:src/main/resources/com/example/sae_gestion_etudiants/Images/ProfilePictures/default.jpg");
+        profilePicture.setImage(image);
+
     }
-
 }

@@ -45,7 +45,7 @@ public class AddNewGroupFormController extends SecretaryController{
         try {
             groupDAO.save(group);
         } catch (SQLException e) {
-            System.out.println("Impossible d'insérer le groupe "+group.getId());
+            throw new RuntimeException();
         }
 
         Stage stage = (Stage) confirmButton.getScene().getWindow();
