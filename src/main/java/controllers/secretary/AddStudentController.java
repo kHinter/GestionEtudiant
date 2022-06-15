@@ -1,7 +1,10 @@
 package controllers.secretary;
 
 import com.example.sae_gestion_etudiants.MainApplication;
+import dao.GroupDAO;
 import dao.StudentDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +26,7 @@ import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.ResourceBundle;
 
-public class AddStudentController extends SecretaryController {
+public class AddStudentController extends SecretaryController implements Initializable{
     @FXML
     private Button cancelButton, confirmButton;
 
@@ -104,10 +107,32 @@ public class AddStudentController extends SecretaryController {
         Stage stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
         File selectedFile = fileChooser.showOpenDialog(stage);
         image.setImage(new Image(selectedFile.getPath()));
-
     }
 
     @Override
     public void init() {
+
+        GroupDAO groupDAO = new GroupDAO();
+
+        try {
+            for(Group group : groupDAO.getAllPromotions()){
+                promotionComboBox.getItems().add(group.getId());
+            }
+            for(Group group : groupDAO.getAllTD()){
+                TDComboBox.getItems().add(group.getId());
+            }
+            for(Group group : groupDAO.getAllTP()){
+                TPComboBox.getItems().add(group.getId());
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        init();
     }
 }
