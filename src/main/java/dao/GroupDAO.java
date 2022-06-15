@@ -4,15 +4,13 @@ import com.example.sae_gestion_etudiants.DatabaseConnection;
 import javafx.scene.chart.PieChart;
 import models.Group;
 
-import java.sql.Array;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GroupDAO
 {
+    //TODO Parente_groupe étudiant peut être NULL
     public Group getById(String id) throws SQLException {
         PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM GROUPE WHERE Id_groupe = ?;");
         statement.setString(1, id);
@@ -105,7 +103,7 @@ public class GroupDAO
     }
 
 
-    private boolean isIdExists(String id) throws SQLException {
+    public boolean isIdExists(String id) throws SQLException {
         PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT Id_groupe FROM GROUPE WHERE Id_groupe = ?;");
         statement.setString(1, id);
 
@@ -119,7 +117,15 @@ public class GroupDAO
             PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("INSERT INTO GROUPE VALUES (?, ?, ?);");
             statement.setString(1, group.getId());
             statement.setString(2, group.getType());
-            statement.setString(3, group.getParent().getId());
+
+            if(group.getParent() == null)
+            {
+                statement.setNull(3, Types.NULL);
+            }
+            else
+            {
+                statement.setString(3, group.getParent().getId());
+            }
 
             statement.executeUpdate();
             System.out.println("Données du groupe insérées avec succès !");
