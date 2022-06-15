@@ -10,7 +10,6 @@ import java.util.List;
 
 public class GroupDAO
 {
-    //TODO Parente_groupe étudiant peut être NULL
     public Group getById(String id) throws SQLException {
         PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM GROUPE WHERE Id_groupe = ?;");
         statement.setString(1, id);
@@ -27,6 +26,7 @@ public class GroupDAO
             if(parenteGroupe != null)
             {
                 group.setParent(getById(parenteGroupe));
+                group.getParent().addChildren(group);
             }
             return group;
         }
@@ -49,8 +49,10 @@ public class GroupDAO
             if(parenteGroup != null)
             {
                 group.setParent(getById(parenteGroup));
-                group.getParent().addChildren(group);
             }
+
+            this.addChildren(group);
+
             promotionsList.add(group);
         }
         return promotionsList;
@@ -72,11 +74,27 @@ public class GroupDAO
             if(parenteGroup != null)
             {
                 group.setParent(getById(parenteGroup));
-                group.getParent().addChildren(group);
             }
             promotionsList.add(group);
         }
         return promotionsList;
+    }
+
+    private void addChildren(Group parent) throws SQLException {
+        PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT * FROM GROUPE WHERE Parente_groupe = ?;");
+        statement.setString(1, parent.getId());
+
+        ResultSet queryResults = statement.executeQuery();
+        while(queryResults.next())
+        {
+            Group child = new Group();
+            child.setId(queryResults.getString("Id_groupe"));
+            child.setType(queryResults.getString("Type_groupe"));
+            child.setParent(parent);
+
+            parent.addChildren(child);
+            this.addChildren(child);
+        }
     }
 
     public List<Group> getAllTP() throws SQLException {
@@ -95,13 +113,11 @@ public class GroupDAO
             if(parenteGroup != null)
             {
                 group.setParent(getById(parenteGroup));
-                group.getParent().addChildren(group);
             }
             promotionsList.add(group);
         }
         return promotionsList;
     }
-
 
     public boolean isIdExists(String id) throws SQLException {
         PreparedStatement statement = DatabaseConnection.getInstance().getConnection().prepareStatement("SELECT Id_groupe FROM GROUPE WHERE Id_groupe = ?;");

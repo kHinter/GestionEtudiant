@@ -27,24 +27,27 @@ public class AddNewGroupFormController extends SecretaryController{
 
     public void onConfirmClicked(ActionEvent actionEvent) throws IOException {
 
-        Group group = new Group();
         GroupDAO groupDAO = new GroupDAO();
+        Group group = new Group();
 
-        String currentType = groupType(getCurrentGroup());
-        group.setType(currentType);
+        group.setType(getCurrentGroup().getType());
 
-        group.setId(groupName.getText()+currentType);
+        group.setId(groupName.getText());
 
-        if(getCurrentGroup() != null){
+        if(getCurrentGroup() != null)
+        {
             group.setParent(getCurrentGroup().getParent());
         }
-        else{
+
+        {
             group.setParent(null);
         }
 
-        try {
+        try
+        {
             groupDAO.save(group);
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             System.out.println("Impossible d'insérer le groupe "+group.getId());
         }
 
@@ -56,18 +59,5 @@ public class AddNewGroupFormController extends SecretaryController{
     @Override
     public void init() {
 
-    }
-
-    public String groupType(Group parent){
-        if(parent == null){
-            return "PROMOTION";
-        }
-        if(parent.getType().equals("PROMOTION")){
-            return "TD";
-        }
-        else if(parent.getType().equals("TD")){
-            return "TP";
-        }
-        return null;
     }
 }

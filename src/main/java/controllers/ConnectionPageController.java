@@ -3,6 +3,7 @@ package controllers;
 import com.example.sae_gestion_etudiants.MainApplication;
 import controllers.secretary.SecretaryHomeController;
 import controllers.student.StudentHomeController;
+import controllers.teacher.TeacherHomeController;
 import dao.StaffDAO;
 import dao.StudentDAO;
 import javafx.fxml.FXML;
@@ -96,7 +97,7 @@ public class ConnectionPageController {
 
                         SecretaryHomeController controller = fxmlLoader.getController();
                         controller.setConnectedStaff(staff);
-                        controller.setCurrentGroup(null); //Fixé à null pour l'accueil avec la liste des groupes promotion
+                        controller.setCurrentGroup(null);
                         controller.init();
 
                         currentStage.show();
@@ -107,6 +108,11 @@ public class ConnectionPageController {
                         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Teacher/home.fxml"));
                         Stage currentStage = (Stage) infoTextFlow.getScene().getWindow();
                         currentStage.setScene(new Scene(fxmlLoader.load()));
+
+                        TeacherHomeController controller = fxmlLoader.getController();
+                        controller.setConnectedStaff(staff);
+                        controller.init();
+
                         currentStage.show();
                     }
                 }

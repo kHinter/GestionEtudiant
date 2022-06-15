@@ -7,22 +7,25 @@ public abstract class TeacherController {
 
     private Staff connectedTeacher;
 
-    public void setConnectedStudent(Staff teacher)
+    public void setConnectedStaff(Staff teacher)
     {
         this.connectedTeacher = teacher;
     }
 
-    public Staff getConnectedStudent()
+    public Staff getConnectedStaff()
     {
         return this.connectedTeacher;
     }
 
     public abstract void init();
 
-    public void onDeconnectionClicked(MouseEvent mouseEvent) {
+    public void onDeconnectionClicked(MouseEvent mouseEvent)
+    {
+
     }
 
-    public void onInfoPersoClicked(MouseEvent mouseEvent) {
+    public void onInfoPersoClicked(MouseEvent mouseEvent)
+    {
     }
 
     public void onTrombinoscopeClicked(MouseEvent mouseEvent) {

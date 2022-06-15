@@ -15,13 +15,13 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.secretary.SecretaryHomeController">
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="284.0" spacing="70.0" style="-fx-background-color: #263a7a;">
+      <VBox alignment="CENTER" prefHeight="700.0" prefWidth="284.0" spacing="200.0" style="-fx-background-color: #263a7a;">
          <children>
             <VBox alignment="CENTER" spacing="15.0">
                <children>
                   <ImageView fitHeight="130.0" fitWidth="130.0">
                      <image>
-                        <Image url="@../../Images/iut_banniere_2.png" />
+                        <Image url="@../../Images/iut_banniere.png" />
                      </image>
                   </ImageView>
                   <Label contentDisplay="CENTER" prefHeight="32.0" prefWidth="107.0" text="Secrétaire" textAlignment="CENTER" textFill="WHITE">
@@ -35,49 +35,28 @@
                         <Font name="Verdana" size="18.0" />
                      </font>
                   </Text>
-                  <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="8.0" />
-                           </HBox.margin>
-                           <image>
-                              <Image url="@../../Images/personal_card.png" />
-                           </image>
-                        </ImageView>
-                        <Label alignment="CENTER" text="Informations personnelles" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
                </children>
             </VBox>
-            <VBox alignment="CENTER" spacing="15.0">
+            <HBox fx:id="dsconnect" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onDeconnectionClicked" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
                <children>
-                  <HBox fx:id="dsconnect" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onDeconnectionClicked" prefHeight="50.0" spacing="20.0" style="-fx-background-color: e6007c;">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="8.0" top="2.0" />
-                           </HBox.margin>
-                           <image>
-                              <Image url="@../../Images/exit.png" />
-                           </image>
-                        </ImageView>
-                        <Label alignment="CENTER" text="Se Déconnecter" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="8.0" top="2.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../Images/exit.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" text="Se Déconnecter" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
          </children>
          <BorderPane.margin>
             <Insets />

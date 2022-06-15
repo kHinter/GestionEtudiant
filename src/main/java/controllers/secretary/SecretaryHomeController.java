@@ -2,6 +2,7 @@ package controllers.secretary;
 
 import com.example.sae_gestion_etudiants.MainApplication;
 import controllers.secretary.SecretaryController;
+import controllers.teacher.TeacherHomeController;
 import dao.GroupDAO;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -29,6 +31,8 @@ import java.net.URL;
 import java.nio.file.attribute.GroupPrincipal;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -85,8 +89,9 @@ public class SecretaryHomeController extends SecretaryController implements Init
         Staff secretary = getConnectedStaff();
         secretaryNameText.setText(secretary.getPrenom() + secretary.getNom().toUpperCase());
         // Ajout des groupes d'étudiants sur la page d'accueil
-        List<Group> groupList = null;
         GroupDAO groupDAO = new GroupDAO();
+
+        List<Group> groupList = null;
 
         if(getCurrentGroup() == null)
         {
@@ -96,15 +101,16 @@ public class SecretaryHomeController extends SecretaryController implements Init
             }
             catch (SQLException e)
             {
-                System.out.println("Erreur lors d'une requête :" + e.getMessage());
+                System.out.println("Erreur lors d'une requête : " + e.getMessage());
             }
+
         }
-        else if(getCurrentGroup().getType() == "PROMOTION")
+        else if(getCurrentGroup().getType().equals("PROMOTION"))
         {
             titleText.setText("Sous-groupe " + getCurrentGroup().getId());
             groupList = getCurrentGroup().getChilrens();
         }
-        else if(getCurrentGroup().getType() == "TD")
+        else if(getCurrentGroup().getType().equals("TD"))
         {
             titleText.setText("Sous-groupe " + getCurrentGroup().getType() + getCurrentGroup().getId());
             groupList = getCurrentGroup().getChilrens();
@@ -165,15 +171,6 @@ public class SecretaryHomeController extends SecretaryController implements Init
             header.getChildren().add(textFlow);
             header.getChildren().add(binIcon);
 
-            header.setOnMouseClicked(new EventHandler<MouseEvent>()
-            {
-                @Override
-                public void handle(MouseEvent event)
-                {
-
-                }
-            });
-
             groupFrame.getChildren().add(header);
 
             VBox buttonsFrame = new VBox();
@@ -202,6 +199,31 @@ public class SecretaryHomeController extends SecretaryController implements Init
             trombinoscopeHBox.getChildren().add(trombinoscopeLabel);
             trombinoscopeHBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#263A7A"), new CornerRadii(15), Insets.EMPTY)));
 
+            trombinoscopeHBox.setOnMouseClicked(new EventHandler<MouseEvent>()
+            {
+                @Override
+                public void handle(MouseEvent event)
+                {
+                    //Changement vers la page de trombinoscope
+                    FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Secretary/trombinoscope.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    try
+                    {
+                        stage.setScene(new Scene(fxmlLoader.load()));
+                    } catch (IOException e)
+                    {
+                        System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+                    }
+
+                    SecretaryTrombinoscopeController controller = fxmlLoader.getController();
+                    controller.setConnectedStaff(getConnectedStaff());
+                    controller.setCurrentGroup(group);
+                    controller.init();
+
+                    stage.show();
+                }
+            });
+
             buttonsFrame.getChildren().add(trombinoscopeHBox);
 
             //Bouton qui redirige vers la liste des étudiants
@@ -226,6 +248,31 @@ public class SecretaryHomeController extends SecretaryController implements Init
             studentListHBox.getChildren().add(studentListLabel);
 
             studentListHBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#263A7A"), new CornerRadii(15), Insets.EMPTY)));
+
+            studentListHBox.setOnMouseClicked(new EventHandler<MouseEvent>()
+            {
+                @Override
+                public void handle(MouseEvent event)
+                {
+                    //Changement vers la page de la liste d'étudiants
+                    FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Secretary/studentList.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    try
+                    {
+                        stage.setScene(new Scene(fxmlLoader.load()));
+                    } catch (IOException e)
+                    {
+                        System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+                    }
+
+                    SecretaryStudentListController controller = fxmlLoader.getController();
+                    controller.setConnectedStaff(getConnectedStaff());
+                    controller.setCurrentGroup(group);
+                    controller.init();
+
+                    stage.show();
+                }
+            });
 
             buttonsFrame.getChildren().add(studentListHBox);
 
@@ -268,6 +315,7 @@ public class SecretaryHomeController extends SecretaryController implements Init
     public void initialize(URL url, ResourceBundle resourceBundle) {
         HBox hbox = new HBox();
         hbox.setSpacing(30);
+        hbox.setAlignment(Pos.CENTER);
         groupListScrollPane.setContent(hbox);
     }
 }
