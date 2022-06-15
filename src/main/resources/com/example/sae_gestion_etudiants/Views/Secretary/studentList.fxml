@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.secretary.SecretaryStudentListController">
    <left>
@@ -32,7 +33,7 @@
                      </font>
                   </Label>
                   <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fx:id="studentNameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="remplace moi">
+                  <Text fx:id="secretaryNameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="remplace moi">
                      <font>
                         <Font name="Verdana" size="18.0" />
                      </font>
@@ -75,13 +76,13 @@
                         <Font name="Arial Black" size="24.0" />
                      </font>
                   </Label>
-                  <ScrollPane fx:id="studentListScrollPane" layoutX="58.0" layoutY="97.0" prefHeight="497.0" prefWidth="810.0">
+                  <ScrollPane fx:id="studentListScrollPane" layoutX="46.0" layoutY="151.0" prefHeight="498.0" prefWidth="824.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0">
                      <content>
-                        <VBox prefHeight="550.0" prefWidth="800.0" spacing="5.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="487.0" prefWidth="818.0" spacing="5.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="58.0" prefWidth="779.0" spacing="20.0" style="-fx-background-color: e6007c; -fx-background-radius: 15;">
+                              <HBox alignment="CENTER" fillHeight="false" prefHeight="58.0" spacing="20.0" style="-fx-background-color: e6007c; -fx-background-radius: 15;">
                                  <children>
-                                    <ImageView fitHeight="78.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="78.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                        <HBox.margin>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </HBox.margin>
@@ -136,6 +137,15 @@
                         <Image url="@../../Images/back_arrow.png" />
                      </image>
                   </ImageView>
+                  <TextFlow layoutX="395.0" layoutY="99.0" prefHeight="26.0" prefWidth="160.0" textAlignment="CENTER" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="361.0">
+                     <children>
+                        <Text fx:id="groupNameText" fill="#263a7a" strokeType="OUTSIDE" strokeWidth="0.0" text="Remplace moi">
+                           <font>
+                              <Font name="Verdana Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
                </children>
             </AnchorPane>
          </children>

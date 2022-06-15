@@ -277,7 +277,7 @@ public class SecretaryHomeController extends SecretaryController implements Init
             buttonsFrame.getChildren().add(studentListHBox);
 
             //Bouton qui redirige vers les sous-groupes
-            if(group.getType() != "TP")
+            if(!group.getType().equals("TP"))
             {
                 HBox subgroupHBox = new HBox();
                 subgroupHBox.setAlignment(Pos.CENTER_LEFT);
@@ -300,6 +300,31 @@ public class SecretaryHomeController extends SecretaryController implements Init
                 subgroupHBox.getChildren().add(subgroupLabel);
 
                 subgroupHBox.setBackground(new Background(new BackgroundFill(Color.valueOf("#263A7A"), new CornerRadii(15), Insets.EMPTY)));
+
+                subgroupHBox.setOnMouseClicked(new EventHandler<MouseEvent>()
+                {
+                    @Override
+                    public void handle(MouseEvent event)
+                    {
+                        //Changement vers une page de sous-groupes
+                        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Views/Secretary/home.fxml"));
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        try
+                        {
+                            stage.setScene(new Scene(fxmlLoader.load()));
+                        } catch (IOException e)
+                        {
+                            System.out.println("Impossible d'ouvrir la vue : " + e.getMessage());
+                        }
+
+                        SecretaryHomeController controller = fxmlLoader.getController();
+                        controller.setConnectedStaff(getConnectedStaff());
+                        controller.setCurrentGroup(group);
+                        controller.init();
+
+                        stage.show();
+                    }
+                });
 
                 buttonsFrame.getChildren().add(subgroupHBox);
             }
